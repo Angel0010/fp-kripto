@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check File</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>Cek Integritas File</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Cek Hash</button>
+  </form>
+  {% if result != None %}
+    <p>Filename: {{ filename }}</p>
+    <p>Hash Baru: {{ new_hash }}</p>
+    <p>Hash Lama: {{ original_hash }}</p>
+    <p>Status: {{ 'Sama (Integritas OK)' if result else 'Berbeda (File Diubah)' }}</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hash File</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>Upload File untuk Dihash</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Hash File</button>
+  </form>
+  {% if filehash %}
+    <p>Filename: {{ filename }}</p>
+    <p>SHA-256 Hash: {{ filehash }}</p>
+  {% endif %}
+</body>
+</html>
